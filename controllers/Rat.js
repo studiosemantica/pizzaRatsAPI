@@ -10,7 +10,7 @@ const index = async (req, res) => {
 
     //create a new array of rats with the pizza info
     const rats = allRats.map(async (rat) => {
-      const thePizza = await Pizza.findById(rat.pizza);
+    const thePizza = await Pizza.findById(rat.pizza);
 
       return {
         _id: rat._id,
