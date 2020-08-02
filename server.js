@@ -8,8 +8,8 @@ const app = express(); //creates express application object
 const morgan = require("morgan"); //Brings in Morgan Library
 const cors = require("cors"); //Brings in CORS library
 const mongoose = require("mongoose"); //bring in mongoose library
-const PizzaRouter = require("./routes/Pizza.js")
-const RatRouter = require("./routes/Rat.js")
+const gifRouter = require("./routes/gifs.js")
+
 
 //////////////////////
 //GlOBAL VARIABLES
@@ -17,7 +17,11 @@ const RatRouter = require("./routes/Rat.js")
 // Variables with global scope
 const PORT = process.env.PORT; //port number for server as defined in environment variables
 const NODE_ENV = process.env.NODE_ENV; //"development" or "production"
+<<<<<<< HEAD
 const mongoURI = process.env.mongoURI + "pizza"; //URI for connecting to database specified in .env
+=======
+const mongoURI = process.env.mongoURI + "gifs"; //URI for connecting to database specified in .env
+>>>>>>> 19b96eb9d4eb34885c2e9a59433dfcf9eee1d976
 const db = mongoose.connection; //the mongoose connection object
 const mongoConfigObject = { useNewUrlParser: true, useUnifiedTopology: true }; //Config option to eliminate deprecation warnings
 
@@ -69,15 +73,15 @@ app.use(express.static("public")); //Allows static serving of files from public 
 ////////////////////
 //These handle sending responses to server requests for spefic endpoints
 
-app.use("/pizza", PizzaRouter)
-app.use("/rat", RatRouter)
+app.use("/gifs", gifRouter)
+
 
 ///////////////////////////
 //ROOT ROUTE (FOR TESTING)
 ///////////////////////////
-app.get("/", (req, res) => {
-  res.send("If you see this then the server is working!");
-});
+// app.get("/", (req, res) => {
+//   res.send("If you see this then the server is working!");
+// });
 
 ////////////////////
 // Server Listener
