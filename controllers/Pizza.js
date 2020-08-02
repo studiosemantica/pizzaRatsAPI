@@ -1,46 +1,46 @@
-const gifs = require("../models/gifs.js");
+const Pizza = require("../models/Pizza.js");
 
-//INDEX - GETS ALL GIFS
+//INDEX - GETS ALL PIZZA
 const index = async (req, res) => {
   try {
-    const allGifs = await gifs.find({});
-    res.status(200).json(allGifs);
+    const allPizza = await Pizza.find({});
+    res.status(200).json(allPizza);
   } catch (error) {
     res.status(400).send(error);
   }
 };
 
-//CREATE - Makes a new gif
+//CREATE - Makes a new Pizza
 const create = async (req, res) => {
   try {
-    const newGifs = await gifs.create(req.body);
-    res.status(200).json(newGifs);
+    const newPizza = await Pizza.create(req.body);
+    res.status(200).json(newPizza);
   } catch (error) {
     res.status(400).send(error);
   }
 };
 
-//Update - updates a gif
+//Update - updates a pizza
 
 const update = async (req, res) => {
   try {
-    const updatedGifs = await gifs.findByIdAndUpdate(
+    const updatedPizza = await Pizza.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true }
     );
-    res.status(200).json(updatedGifs);
+    res.status(200).json(updatedPizza);
   } catch (error) {
     res.status(400).send(error);
   }
 };
 
-//destroy - deletes a gif
+//destroy - deletes a pizza
 
 const destroy = async (req, res) => {
   try {
-    const deletedGifs = await gifs.findByIdAndDelete(req.params.id);
-    res.status(200).json(deletedGifs);
+    const deletedPizza = await Pizza.findByIdAndDelete(req.params.id);
+    res.status(200).json(deletedPizza);
   } catch (error) {
     res.status(400).send(error);
   }
